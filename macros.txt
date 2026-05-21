@@ -1,0 +1,117 @@
+.. macro definitions
+
+.macro thoughtbreak
+.ns 1
+.tb
+.ns 1
+.endmacro
+
+.macro chapter_opening chapter_sequence chapter_title
+.ns 1
+.li h
+<div class="chapter fsb tac" id="ch${chapter_sequence}">
+  Chapter ${chapter_sequence}: ${chapter_title}
+</div>
+.li-
+.ns 1
+.endmacro
+
+.macro heading A B C D E F G
+.dt ${A}
+
+.m author ${B}
+.m author-sort ${C}
+.m publisher ${D}
+.m source ${E}
+.m date ${F}
+.m identifier urn:uuid:${G}
+.endmacro
+
+.. example usage:
+.. .ma titlepage_v1 "I BUY ME COUPLE HORSES" "W. C. Tuttle"
+
+.macro titlepage_v1 A B
+.ct
+${A}
+
+By ${B}
+.ns 2
+.ct-
+.li h
+<h1 class='tac fs14' style='font-weight:normal'>${A}</h1>
+<div class='tac fs11 mb20'>By ${B}</div>
+.li-
+.endmacro
+
+.macro titlepage_v2 A B C
+.ct
+${A}
+.ns 1
+${B}
+.ns 1
+${C}
+.ns 2
+.ct-
+.li h
+<h1 class='tac fs14' style='font-weight:normal'>${A}</h1>
+<div class='tac fs11 mb05'>By ${B}</div>
+<div class='tac fs09 mb20 it'>${C}</div>
+.li-
+.endmacro
+
+.macro titlepage_v3 A B C D
+.ct
+${A}
+.ns 1
+${B}
+.ns 1
+${C}
+${D}
+.ns 2
+.ct-
+.li h
+<h1 class='tac fs14' style='font-weight:normal'>${A}</h1>
+<div class='tac fs11 mb05'>By ${B}</div>
+<div class='tac fs09 mb20 it'>${C}<br/>${D}</div>
+.li-
+.endmacro
+
+
+.. example usage:
+.. .ma tn "This story appeared in the October 1, 1930 issue of Adventure magazine." "This story appeared in the October 1, 1930 issue of <i>Adventure</i> magazine."
+
+.macro tn A B
+.lt
+.ns 2
+[Transcriber’s Note: ${A}]
+.lt-
+.li h
+<div class='tn'>
+<p>Transcriber’s Note: ${B}</p>
+</div>
+.li-
+.endmacro
+
+.. adds CSS for Transcriber's Note
+
+.macro css_tn
+.de .tn { font-size:0.9em; border: 1px solid silver; margin-top: 1.8em; margin-left: 8%; width: 80%; padding:0.4em 2%; background-color: #DDDDEE; }
+.de .tn p { text-indent: 0; text-align: left; }
+.endmacro
+
+
+.macro midchapter A B
+.li h
+</div>
+<div class="chapter" id="ch${A}" data-title="${B}">
+<h2>${B}</h2>
+.li-
+.ns 4
+.ct
+${B}
+.ct-
+.ns 2
+.endmacro
+
+
+
